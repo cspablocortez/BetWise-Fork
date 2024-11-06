@@ -1,21 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>BetWise</title>
 </head>
+
 <body>
     <header>
         <nav>
             <a href="#">Simple Budget</a>
-            <a href="#">Compound Budget</a>
-            <a href="#">Resources</a>
+            <a href="comp.html">Compound Budget</a>
+            <a href="res.html">Resources</a>
         </nav>
-
         <h1>BetWise</h1>
         <p>A web app for managing your gambling budget.</p>
+        <!-- <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        </div> -->
+        <label class="switch">
+            <input id="checkbox" type="checkbox" onclick="estimate()">
+            <span class="slider round"></span>
+        </label>
     </header>
+    <section>
+        <div class="rightm">
+            <form id="myForm">
+                <label for="zip">ZipCode:</label>
+                <input class="grey2" type="number" id="zip" name="zip" oninput="spend()"><br><br>
+
+                <label for="mRev">Monthly Revenue:</label>
+                <input class="grey2" type="number" id="mRev" name="mRev" oninput="spend()"><br><br>
+
+
+                <label for="mEx">Monthly Expendeture:</label>
+                <input class="grey2" type="number" id="mEx" name="mEx" oninput="spend()"><br><br>
+
+                <label for="credit">Credit Score:</label>
+                <input class="grey2" type="number" id="credit" name="credit" oninput="spend()"><br><br>
+
+                <p id="ans">(Your Allowed Spending Will Be Shown Here)</p>
+            </form>
+            <button class="s" type="button" onclick="estimate(); return false;">Estimate Based On Location
+                (Unreliable)</button>
+            <div class="n">
+                <a href="login.html"><button>Budgeting</button></a>
+            </div>
+            <!-- <button type="button" onclick="form(); return false;">Find Results</button> -->
+        </div>
+    </section>
+    <div class="over">
+        <div class="flip">
+            <div class="inner">
+                <div class="front">
+                    <div class="im">
+                        1
+                    </div>
+                </div>
+                <div class="back">
+                    <h1>see your spending</h1>
+                </div>
+            </div>
+        </div>
+        <div class="flip">
+            <div class="inner">
+                <div class="front">
+                    <div class="im">
+                        2
+                    </div>
+                </div>
+                <div class="back">
+                    <h1>save your money</h1>
+                </div>
+            </div>
+        </div>
+        <div class="flip">
+            <div class="inner">
+                <div class="front">
+                    <div class="im">
+                        3
+                    </div>
+                </div>
+                <div class="back">
+                    <h1>just because the house always wins it doesnt mean you have to lose</h1>
+                </div>
+            </div>
+        </div>
+        <div class="flip">
+            <div class="inner">
+                <div class="front">
+                    <div class="im">
+                        4
+                    </div>
+                </div>
+                <div class="back">
+                    <h1>Set your monthly spending limit and receive reminders to stay within your budget.</h1>
+                </div>
+            </div>
+        </div>
+        <script>
+            function spend() {
+                var rev = Number(document.getElementById("mRev").value);
+                var ex = Number(document.getElementById("mEx").value);
+                var cred = Number(document.getElementById("credit").value);
+
+                var ans = rev - ex;
+                // Get the value from the inputs
+                console.log(rev, ex);
+
+                // Update the num text
+                if (ans >= 1000 && cred > 300) {
+                    ans = ans * .50;
+                    document.getElementById("ans").innerText = "$" + ans;
+                } else if (ans >= 50000 && cred > 300) {
+                    ans = ans * .75;
+                    document.getElementById("ans").innerText = "$" + ans;
+                } else if (ans >= 0) {
+                    document.getElementById("ans").innerText = "Start Saving";
+                } else {
+                    document.getElementById("ans").innerText = "Dont Spend";
+                }
+            }
+
+            function estimate() {
+                var id = document.getElementById("checkbox");
+                console.log(id.checked);
+                var rev = Number(document.getElementById("mRev").value);
+                var ex = Number(document.getElementById("mEx").value);
+                var cred = Number(document.getElementById("credit").value);
+
+                if (id.checked == true) {
+                    document.getElementById("mRev").value = 4902;
+                    document.getElementById("mEx").value = 2255;
+                    document.getElementById("credit").value = 695;
+                    rev = 4902;
+                    ex = 2255;
+                    cred = 695;
+
+                    var ans = rev - ex;
+                    ans = ans * .50;
+                    document.getElementById("ans").innerText = "$" + ans;
+                } else {
+                    document.getElementById("mRev").value = 0;
+                    document.getElementById("mEx").value = 0;
+                    document.getElementById("credit").value = 0;
+                    rev = 0;
+                    ex = 0;
+                    cred = 0;
+                    var ans = rev - ex;
+                    ans = ans * .50;
+                    document.getElementById("ans").innerText = "$" + ans;
+                }
+
+            }
+        </script>
+    </div>
+    <script src="main.js"></script>
+    <div class="e"></div>
 </body>
+<footer>
+    <p>Copyright 2024. BetWise. All rights reserved.</p>
+</footer>
+
 </html>
