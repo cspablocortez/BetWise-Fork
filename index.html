@@ -18,21 +18,22 @@
         <p>A web app for managing your gambling budget.</p>
     </header>
     <main>
-        <p>Current Budget: <strong><span id="balance">$1,323.50</span></strong></p> 
+        <p>Balance: <strong>$<span id="balance">1,323.50</span></strong></p> 
 
         <label for="">Money Spent</label>
         $ <input type="number" id="expense">
         <button id="add-btn">Add</button>
 
-        <p><em>On Enter, new item is added to unordered list of expenditures.</em></p>
+        <p>Expenses</p>
 
-        <ul id="expenses-list">
-            <li style="color: red;">-$312</li>
+        <ul id="expenses-list" style="color: red">
         </ul>
     </main>
 
     <footer>
-        <small>© 2024 BetWise. All rights reserved. GNU GPLv3.</small>
+        <small>© 2024 Betwise. All rights reserved. GNU GPLv3.</small>
     </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
