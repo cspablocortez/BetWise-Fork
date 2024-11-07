@@ -1,6 +1,6 @@
 const balance = document.getElementById("balance");
 const expense = document.getElementById("expense");
-const addBtn = document.getElementById("add-btn")
+const addBtn = document.getElementById("add-btn");
 const expensesList = document.getElementById("expenses-list");
 
 class Account {
@@ -10,11 +10,15 @@ class Account {
     }
 
     addExpense() {
-        this.balance = this.balance - parseFloat(expense.value);
+        let loss = parseFloat(expense.value);
+        this.balance -= loss;
+
         let expenseItem = document.createElement("li");
-        expenseItem.textContent = "$" + parseFloat(expense.value);
+        expenseItem.textContent = "-$" + loss;
         expensesList.appendChild(expenseItem);
+
         balance.textContent = this.balance;
+        expense.value = "";
     }
 }
 
