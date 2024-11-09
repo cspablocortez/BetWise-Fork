@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <title>BetWise</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -18,15 +20,20 @@
         <p>A web app for managing your gambling budget.</p>
     </header>
     <main>
-        <p>Balance: <strong>$<span id="balance">1,323.50</span></strong></p> 
+        <p>Balance: <strong>$<span id="balance">1,323.50</span></strong></p>
 
         <label for="">Money Spent</label>
+
+        <select name="dd" id="dd">
+            <option value="spent">Spent</option>
+            <option value="earned">Earned</option>
+        </select>
         $ <input type="number" id="expense">
         <button id="add-btn">Add</button>
 
         <p>Expenses</p>
 
-        <ul id="expenses-list" style="color: red">
+        <ul id="expenses-list">
         </ul>
     </main>
 
@@ -36,4 +43,5 @@
 
     <script src="app.js"></script>
 </body>
+
 </html>
