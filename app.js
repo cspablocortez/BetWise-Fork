@@ -1,55 +1,68 @@
 const balance = document.getElementById("balance");
-const expense = document.getElementById("expense");
+const input = document.getElementById("input");
 const addBtn = document.getElementById("add-btn");
 const expensesList = document.getElementById("expenses-list");
 const dd = document.getElementById("dd");
+const states = document.getElementById("states");
 
 console.log(dd.value)
 
 class Account {
+    
     constructor() {
-        this.balance = 1323.50.toFixed(2);
+        this.balance = 2500.00.toFixed(2);
         balance.textContent = this.balance;
     }
 
     addExpense() {
-        let loss = parseFloat(expense.value);
+        let loss = parseFloat(input.value);
         this.balance -= loss;
-        this.balance = this.balance.toFixed(2);
+        console.log(this.balance)
 
         let expenseItem = document.createElement("li");
         expenseItem.style.color = "red";
-        expenseItem.textContent = "-$" + loss;
+        expenseItem.textContent = "-$" + loss.toFixed(2);
         expensesList.appendChild(expenseItem);
 
-        balance.textContent = this.balance;
-        expense.value = "";
+        balance.textContent = this.balance.toFixed(2);
+        input.value = "";
     }
 
-    addEarned() {
-        let add = parseFloat(expense.value);
-        this.balance += add;
-        this.balance = this.balance.toFixed(2);
+    addIncome() {
+        let gain = parseFloat(input.value);
+        this.balance += gain;
+        console.log(this.balance)
 
-        let earnedItem = document.createElement("li");
-        earnedItem.style.color = "green";
-        earnedItem.textContent = "+$" + add;
-        expensesList.appendChild(earnedItem);
+        let incomeItem = document.createElement("li");
+        incomeItem.style.color = "green";
+        incomeItem.textContent = "+$" + gain.toFixed(2);
+        expensesList.appendChild(incomeItem);
 
+        balance.textContent = this.balance.toFixed(2);
+        input.value = "";
+    }
+
+    setBalance(newBalance) {
+        this.balance = newBalance.toFixed(2);
         balance.textContent = this.balance;
-        expense.value = "";
     }
 }
 
 const account = new Account();
 
+states.addEventListener('change', function() {
+    // const californiaIncome = statesIncome.find(state => state.state === "California");
+    let activeState = statesIncome.find(stateObject => stateObject.state === states.value);
+    account.setBalance(activeState.avg);
+})
+
 addBtn.addEventListener('click', function() {
-    if(expense.value != "") {
+    if(input.value != "") {
         console.log("nothing")
         if(dd.value == "spent") {
             account.addExpense();
         } else {
-            account.addEarned();
+            account.addIncome();
         }
     } 
     console.log("woo");
