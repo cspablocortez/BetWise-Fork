@@ -2,7 +2,7 @@ const balance = document.getElementById("balance");
 const input = document.getElementById("input");
 const addBtn = document.getElementById("add-btn");
 const expensesList = document.getElementById("expenses-list");
-const dd = document.getElementById("dd");
+const dd = document.getElementById("type");
 const states = document.getElementById("states");
 
 console.log(dd.value)

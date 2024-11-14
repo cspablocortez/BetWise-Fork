@@ -9,7 +9,6 @@ const statesIncome = [
   { state: "Delaware", avg: 3800 },
   { state: "Florida", avg: 3200 },
   { state: "Georgia", avg: 3200 },
-  { state: "Hawaii", avg: 5000 },
   { state: "Idaho", avg: 3000 },
   { state: "Illinois", avg: 3800 },
   { state: "Indiana", avg: 3200 },
@@ -42,13 +41,10 @@ const statesIncome = [
   { state: "South Dakota", avg: 3500 },
   { state: "Tennessee", avg: 3100 },
   { state: "Texas", avg: 3500 },
-  { state: "Utah", avg: 3700 },
   { state: "Vermont", avg: 3500 },
   { state: "Virginia", avg: 4400 },
   { state: "Washington", avg: 5100 },
   { state: "West Virginia", avg: 2700 },
   { state: "Wisconsin", avg: 3500 },
   { state: "Wyoming", avg: 3800 }
-];
-
-  
+]; 
