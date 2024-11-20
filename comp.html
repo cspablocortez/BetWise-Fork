@@ -1,12 +1,10 @@
-<!-- ask coach pablo to describe the features of the compound budget page -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
-    <title>BetWise</title>
+    <title>Resources</title>
   </head>
   <body>
     <header>
@@ -22,49 +20,21 @@
           </svg>
           GitHub</a
         >
+        <h1>Compound Budget</h1>
+        <p>Advanced Budget</p>
       </nav>
-
-      <h1>BetWise</h1>
-      <p>A web app for managing your gambling budget.</p>
     </header>
     <main>
-      <section>
-        <p class="notice">
-          Starting balance is determined by location based on data provided by
-          the<a href="https://www.bls.gov"
-            >U.S. Bureau of Labor Statistics (BLS)</a
-          >.
-        </p>
-        <label for="">Location</label>
-        <select name="states" id="states"></select>
-      </section>
-
-      <section>
-        <p>
-          Balance: <strong>$<span id="balance">0</span></strong>
-        </p>
-
-        <select name="type" id="type" style="margin-inline-end: 1rem">
-          <option value="loss">Loss</option>
-          <option value="gain">Gain</option>
-        </select>
-
-        $ <input type="number" id="amount" placeholder="Amount" />
-        <button id="add-btn">Add</button>
-      </section>
-
-      <section>
-        <p>Expenses</p>
-        <ul id="expenses-list"></ul>
-      </section>
+      <h4>
+        Balance: <strong>$<span id="newB">0</span></strong>
+      </h4>
+      <h5>Budget: <input id="newBudget" type="text" /></h5>
+      <button id="change">Add</button>
     </main>
 
     <footer>
       <small>© 2024 BetWise. All rights reserved. GNU GPLv3.</small>
     </footer>
     <!-- hello -->
-
-    <script src="states.js"></script>
-    <script src="app.js"></script>
   </body>
 </html>

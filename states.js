@@ -46,5 +46,5 @@ const statesIncome = [
   { state: "Washington", avg: 5100 },
   { state: "West Virginia", avg: 2700 },
   { state: "Wisconsin", avg: 3500 },
-  { state: "Wyoming", avg: 3800 }
-]; 
+  { state: "Wyoming", avg: 3800 },
+];
