@@ -1,5 +1,3 @@
-<!-- ask coach pablo to describe the features of the compound budget page -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,17 +27,17 @@
     </header>
     <main>
       <section>
+        <h4>Simple Budget</h4>
         <p class="notice">
           Starting balance is determined by location based on data provided by
           the
           <a href="https://www.bls.gov">U.S. Bureau of Labor Statistics (BLS)</a
           >.
         </p>
+
         <label for="">Location</label>
         <select name="states" id="states"></select>
-      </section>
 
-      <section>
         <p>
           Balance: <strong>$<span id="balance">0</span></strong>
         </p>
@@ -49,11 +47,9 @@
           <option value="gain">Gain</option>
         </select>
 
-        $ <input type="number" id="amount" placeholder="Amount" />
+        <input type="number" id="amount" placeholder="Amount" />
         <button id="add-btn">Add</button>
-      </section>
 
-      <section>
         <p>Expenses</p>
         <ul id="expenses-list"></ul>
       </section>
@@ -62,9 +58,7 @@
     <footer>
       <small>© 2024 BetWise. All rights reserved. GNU GPLv3.</small>
     </footer>
-    <!-- hello -->
 
-    <script src="states.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

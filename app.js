@@ -3,9 +3,22 @@ const amountInput = document.getElementById("amount");
 const amountType = document.getElementById("type");
 const addBtn = document.getElementById("add-btn");
 const expensesList = document.getElementById("expenses-list");
-const states = document.getElementById("states");
+const statesDropdown = document.getElementById("states");
 
-generateDrop();
+function generateDropdown() {
+  fetch("./states.json")
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((stateData) => {
+        const opt = document.createElement("option");
+        opt.value = stateData.state;
+        opt.textContent = stateData.state;
+        statesDropdown.append(opt);
+      });
+    });
+}
+
+generateDropdown();
 
 class Account {
   constructor() {
@@ -35,28 +48,25 @@ class Account {
     amountInput.value = "";
   }
 
-  locationChange(newbalance) {
-    this.balance = newbalance.toFixed(2);
+  updateLocation(state) {
+    this.balance = state.average.toFixed(2);
     balanceLabel.textContent = this.balance;
   }
 }
 
 const account = new Account();
-addBtn.addEventListener("click", account.updateBalance.bind(account));
-states.addEventListener("change", function () {
-  console.log(states.value);
-  // state1 is not the state in states.js its the object
-  let foundState = statesIncome.find(function (state1) {
-    return states.value == state1.state;
-  });
-  account.locationChange(foundState.avg);
+
+addBtn.addEventListener("click", () => {
+  account.updateBalance();
 });
 
-function generateDrop() {
-  for (let i = 0; i < statesIncome.length; i++) {
-    let opt = document.createElement("option");
-    opt.value = statesIncome[i].state;
-    opt.textContent = statesIncome[i].state;
-    states.appendChild(opt);
-  }
-}
+statesDropdown.addEventListener("change", () => {
+  fetch("./states.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const selectedState = statesDropdown.value;
+      const stateData = data.find((dataObj) => dataObj.state === selectedState);
+      account.updateLocation(stateData);
+    })
+    .catch((error) => console.error("Error fetching JSON:", error));
+});
