@@ -4,6 +4,7 @@ const amountType = document.getElementById("type");
 const addBtn = document.getElementById("add-btn");
 const expensesList = document.getElementById("expenses-list");
 const statesDropdown = document.getElementById("states");
+let num = 0;
 
 function generateDropdown() {
   fetch("./states.json")
@@ -30,7 +31,20 @@ class Account {
     let amount = parseFloat(amountInput.value);
     let type = amountType.value;
     let item = document.createElement("li");
+    let expObj = document.createElement("p");
+    expObj.textContent = "Expenses";
     let prefix = "";
+    let exp = document.getElementById("exp");
+
+    if (num == 0) {
+      num++;
+    } else if (num == 1) {
+      num = 2;
+    }
+
+    if (num == 1) {
+      exp.appendChild(expObj);
+    }
 
     if (type == "loss") {
       this.balance -= amount;
